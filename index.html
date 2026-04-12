@@ -129,6 +129,19 @@
         .btn-shine:hover::after {
             left: 200%;
         }
+
+        /* FAB用アニメーション */
+        .fab-enter {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fabEnterAnim 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+        }
+        @keyframes fabEnterAnim {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen bg-primary-50 font-sans text-slate-800 scroll-smooth selection:bg-secondary-200 selection:text-slate-900">
@@ -193,7 +206,7 @@
     </header>
 
     <!-- 常時表示CTA (Floating Action Button) -->
-    <div class="fixed bottom-6 right-6 z-50 fade-up delay-300 pointer-events-none">
+    <div class="fixed bottom-6 right-6 z-50 fab-enter pointer-events-none">
         <a href="tel:097-578-7320" class="pointer-events-auto flex items-center justify-center gap-3 bg-gradient-to-r from-primary-500 to-secondary-500 text-white w-14 h-14 md:w-auto md:px-6 md:py-2.5 md:h-auto rounded-full shadow-[0_10px_25px_-5px_rgba(0,175,204,0.4)] hover:shadow-[0_15px_30px_-5px_rgba(0,175,204,0.6)] hover:-translate-y-1 transition-all duration-300 btn-shine group border border-white/20">
             <i data-lucide="phone" class="w-6 h-6 md:w-6 md:h-6 fill-white/20"></i>
             <span class="hidden md:flex flex-col items-start justify-center">
@@ -418,6 +431,7 @@
                     <div class="bg-primary-100/50 text-primary-900 text-center py-5 border-b border-primary-100">
                         <h3 class="font-serif font-bold text-2xl">要支援の方</h3>
                         <p class="text-sm text-primary-800/80 mt-1 font-medium">※月額の自己負担額（1割負担の場合）</p>
+                        <!-- 高さを合わせるための透明なプレースホルダー -->
                         <p class="text-sm mt-0.5 font-medium invisible select-none" aria-hidden="true">※9:15〜16:30（7時間以上8時間未満）</p>
                     </div>
                     <div class="p-6 md:p-8 flex-1">
@@ -446,7 +460,7 @@
                     </div>
                 </div>
 
-                <!-- 要介護 -->
+                <!-- 要介護 (1日と半日を縦に統合) -->
                 <div class="glass-card rounded-[2rem] overflow-hidden flex flex-col fade-up delay-100 bg-white">
                     <div class="bg-secondary-100/50 text-secondary-900 text-center py-5 border-b border-secondary-100">
                         <h3 class="font-serif font-bold text-2xl">要介護の方</h3>
